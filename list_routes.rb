@@ -10,7 +10,7 @@ SEPARATOR = ","
 
 rows = []
 File.foreach(INPUT_FILE_PATH) do |line|
-  # アクションも別の列に出力したいので"#"も対象とする
+  # アクションは別の列に出力したいので"#"も対象とする
   row = line.strip.gsub(/\s+|\#/, SEPARATOR).split(SEPARATOR)
   # 名前付きルートの情報は一旦不要＆行頭の位置を揃える（rails routesでは一番左に名前付きルート、その隣にメソッド名が表示される。一つの名前付きルートに対して複数のメソッドが存在する場合は、2行目以降の名前付きルートの列が空欄になる）
   row.shift unless METHODS.include?(row[0])
